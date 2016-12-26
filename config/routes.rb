@@ -8,11 +8,16 @@ Rails.application.routes.draw do
 
   root :to => 'welcome#index'
 
-  resources :rides
+  # resources :rides
 
-  resources :attractions
+  resources :attractions do
+    resources :rides, only: [:create]
+  end
 
-  resources :users#, :except => :new
+  resources :users #do
+  #   resources :attractions
+  # end
 
+  # resources :rides
 
 end

@@ -5,15 +5,16 @@ class Ride < ActiveRecord::Base
 
   def take_ride
     if !has_min_tickets? && !has_min_height?
-      "Sorry. You do not have enough tickets the #{attraction_name}. You are not tall enough to ride the #{attraction_name}."
+      "Sorry. You do not have enough tickets to ride the #{attraction_name}. You are not tall enough to ride the #{attraction_name}."
     elsif !has_min_tickets?
-      "Sorry. You do not have enough tickets the #{attraction_name}."
+      "Sorry. You do not have enough tickets to ride the #{attraction_name}."
     elsif !has_min_height?
       "Sorry. You are not tall enough to ride the #{attraction_name}."
     else
       user_pf_tickets
       user_pf_nausea
       user_pf_happiness
+      "Thanks for riding the #{attraction_name}!"
     end
   end
 

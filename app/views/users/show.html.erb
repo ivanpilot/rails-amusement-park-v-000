@@ -1,10 +1,14 @@
 <%=link_to "See attractions", attractions_path %>
 <br>
-<h1>Welcome <%=current_user.name.capitalize%></h1>
+<h1>Welcome <%=capitalize_name(current_user.name)%></h1>
+<%=display_admin(current_user)%>
 <br>
-<h4>Nausea: <%=current_user.nausea%></h4>
 <br>
-<h4>Happiness: <%=current_user.happiness%></h4>
+<h4>Mood: <%=current_user.mood%></h4>
+<br>
+<h4>Nausea level: <%=current_user.nausea%></h4>
+<br>
+<h4>Happiness level: <%=current_user.happiness%></h4>
 <br>
 <h4>Tickets: <%=current_user.tickets%></h4>
 <br>

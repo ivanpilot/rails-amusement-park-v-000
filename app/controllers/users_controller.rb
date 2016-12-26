@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Congrats! You are signed up."
       # session[:user_id] = @user.id
-      log_in(user)
+      log_in(@user)
       redirect_to user_path(@user)
     else
       flash.now[:alert] = "There was an issue during the sign-up process. Please try again."
@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    # raise params.inspect
   end
 
   def destroy
@@ -43,13 +44,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :nausea, :happiness, :tickets, :height)
+    params.require(:user).permit(:name, :password, :nausea, :happiness, :tickets, :height, :admin)
   end
 
   def correct_user
-
     @user = User.find_by(id: params[:id])
-    # raise @user.inspect
     unless @user == current_user
       # log_out
       # flash[:alert] = "Please Sign in."

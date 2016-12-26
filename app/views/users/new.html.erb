@@ -8,9 +8,6 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
   <br>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <br>
   <%= f.label :nausea %>
   <%= f.text_field :nausea %>
   <br>
@@ -23,7 +20,9 @@
   <%= f.label :height %>
   <%= f.text_field :height %>
   <br>
-
+  <%= f.label :admin %>
+  <%= f.check_box :admin %>
+  <br>
   <%= f.submit 'Create User'%>
 <% end %>
 
