@@ -1,6 +1,9 @@
 <h1>Welcome to <%= @attraction.name %></h1>
 <br>
 <h4>Attraction's features</h4>
+<%= link_to "Edit Attraction", edit_attraction_path(@attraction) if current_user.admin?%>
+<br>
+<br>
 <p>Nausea: <%= @attraction.nausea_rating%></p>
 <p>Happiness: <%= @attraction.happiness_rating%></p>
 <p>Tickets: <%= @attraction.tickets%></p>
